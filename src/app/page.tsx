@@ -3,35 +3,7 @@
 import { CldImage, CldUploadButton } from "next-cloudinary";
 import { useState } from "react";
 
-type UploadedImage = {
-  event: string;
-  info: {
-    id: string;
-    batchId: string;
-    asset_id: string;
-    public_id: string;
-    version: number;
-    version_id: string;
-    signature: string;
-    width: number;
-    height: number;
-    format: string;
-    resource_type: string;
-    created_at: string;
-    tags: string[];
-    bytes: number;
-    type: string;
-    etag: string;
-    placeholder: boolean;
-    url: string;
-    secure_url: string;
-    folder: string;
-    access_mode: string;
-    original_filename: string;
-    path: string;
-    thumbnail_url: string;
-  };
-};
+import type { CldUploadedImage } from "@/types/cloudinary";
 
 const HomePage = () => {
   const [publicId, setPublicId] = useState("");
@@ -42,7 +14,7 @@ const HomePage = () => {
 
       <CldUploadButton
         onUpload={(result) => {
-          const res = result as UploadedImage;
+          const res = result as CldUploadedImage;
 
           setPublicId(res.info.public_id);
         }}
