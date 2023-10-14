@@ -1,11 +1,9 @@
-// src/app/layout.tsx
-
 import { Inter } from "next/font/google";
 
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-import "./globals.css";
+import "@/styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
