@@ -1,3 +1,8 @@
+export type CldFolder = {
+  name: string;
+  path: string;
+};
+
 export type CldUploadedImage = {
   event: string;
   info: {
