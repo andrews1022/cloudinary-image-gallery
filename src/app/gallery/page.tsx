@@ -1,8 +1,22 @@
+import { GalleryGrid } from "@/components/gallery-grid";
+import { SearchForm } from "@/components/search-form";
+import { UploadButton } from "@/components/upload-button";
+
 const GalleryPage = () => {
   return (
-    <div>
-      <h1>GalleryPage</h1>
-    </div>
+    <section>
+      <div className="flex flex-col gap-8">
+        <div className="flex justify-between">
+          <h1 className="font-bold text-4xl">Gallery</h1>
+
+          <UploadButton />
+        </div>
+
+        <SearchForm />
+
+        <GalleryGrid />
+      </div>
+    </section>
   );
 };
 
