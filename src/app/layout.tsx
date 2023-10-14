@@ -1,4 +1,8 @@
 import { Inter } from "next/font/google";
+import Image from "next/image";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/shadcn/ui/avatar";
+import { SideMenu } from "@/components/side-menu";
 
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
@@ -18,8 +22,27 @@ type RootLayoutProps = {
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="dark">
+      <body className={inter.className}>
+        <header className="border-b">
+          <div className="flex h-16 items-center px-4 container mx-auto">
+            <Image src="/album.png" width="50" height="50" alt="icon of this photo album app" />
+            Andrew's Photos
+            <div className="ml-auto flex items-center space-x-4">
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+            </div>
+          </div>
+        </header>
+
+        <div className="flex">
+          <SideMenu />
+
+          <main className="w-full px-4 pt-8">{children}</main>
+        </div>
+      </body>
     </html>
   );
 };
