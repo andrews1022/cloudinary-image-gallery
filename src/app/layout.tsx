@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import "@/styles/globals.css";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,8 +27,11 @@ const RootLayout = ({ children }: RootLayoutProps) => {
       <body className={inter.className}>
         <header className="border-b">
           <div className="flex h-16 items-center px-4 container mx-auto">
-            <Image src="/album.png" width="50" height="50" alt="icon of this photo album app" />
-            Andrew's Photos
+            <Link className="flex items-center gap-x-2" href="/">
+              <Image src="/album.png" width="50" height="50" alt="icon of this photo album app" />
+              Andrew's Photos
+            </Link>
+
             <div className="ml-auto flex items-center space-x-4">
               <Avatar>
                 <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
