@@ -33,6 +33,10 @@ const CloudinaryImage = ({ image }: CloudinaryImageProps) => {
             onClick={() => {
               // remove favourite tag from this cloudinary image
               setIsFavourited((previousState) => !previousState);
+
+              startTransition(() => {
+                setAsFavouriteAction(false, image.public_id);
+              });
             }}
           />
         ) : (
