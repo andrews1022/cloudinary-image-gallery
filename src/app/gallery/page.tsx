@@ -1,16 +1,17 @@
 import cloudinary from "cloudinary";
 
+import { CloudinaryImage } from "@/components/cloudinary-image";
 import { GalleryGrid } from "@/components/gallery-grid";
 import { SearchForm } from "@/components/search-form";
 import { UploadButton } from "@/components/upload-button";
 
 import type { CldSearchResults } from "@/types/cloudinary";
-import { CloudinaryImage } from "@/components/cloudinary-image";
 
 const getImages = async () => {
   const results: Promise<CldSearchResults> = await cloudinary.v2.search
     .expression("resource_type:image")
     .sort_by("created_at", "desc")
+    .with_field("tags")
     .max_results(5)
     .execute();
 

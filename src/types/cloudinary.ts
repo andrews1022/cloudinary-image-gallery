@@ -37,6 +37,7 @@ export type CldResource = {
   resource_type: string;
   secure_url: string;
   status: string;
+  tags: string[];
   type: string;
   uploaded_at: string;
   uploaded_by: null;

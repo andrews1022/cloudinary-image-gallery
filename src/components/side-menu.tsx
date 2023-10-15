@@ -30,9 +30,9 @@ const SideMenu = () => {
             {/* display folders here later... */}
 
             <Button asChild variant="ghost" className="w-full justify-start flex gap-2">
-              <Link href="/favorites">
+              <Link href="/favourites">
                 <Heart />
-                Favorites
+                Favourites
               </Link>
             </Button>
           </div>
