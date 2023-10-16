@@ -7,6 +7,7 @@ import { useState, useTransition } from "react";
 import { setAsFavouriteAction } from "@/actions/favourite";
 
 import type { CldResource } from "@/types/cloudinary";
+import { ImageMenu } from "@/components/image-menu";
 
 type CloudinaryImageProps = {
   image: CldResource;
@@ -33,9 +34,10 @@ const CloudinaryImage = ({ image }: CloudinaryImageProps) => {
         src={image.url}
         sizes="100vw"
         alt={image.filename}
+        className="w-full h-full object-cover rounded-md"
       />
 
-      <button className="absolute top-2 right-2" type="button">
+      <button className="absolute top-2 left-2" type="button">
         {isFavourited ? (
           <Heart
             className="cursor-pointer stroke-red-500 fill-red-500 hover:fill-transparent transition-colors"
@@ -48,6 +50,8 @@ const CloudinaryImage = ({ image }: CloudinaryImageProps) => {
           />
         )}
       </button>
+
+      <ImageMenu image={image} />
     </div>
   );
 };

@@ -3,6 +3,15 @@ export type CldFolder = {
   path: string;
 };
 
+export type CldFolderResults = {
+  folders: CldFolder[];
+  next_cursor: any;
+  rate_limit_allowed: number;
+  rate_limit_remaining: number;
+  rate_limit_reset_at: string;
+  total_count: number;
+};
+
 export type CldSearchResults = {
   next_cursor: string;
   rate_limit_allowed: number;
