@@ -13,4 +13,4 @@ const ForceRefresh = () => {
   return <></>;
 };
 
-export default ForceRefresh;
+export { ForceRefresh };

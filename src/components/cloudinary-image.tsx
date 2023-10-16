@@ -14,7 +14,16 @@ type CloudinaryImageProps = {
 
 const CloudinaryImage = ({ image }: CloudinaryImageProps) => {
   const [isFavourited, setIsFavourited] = useState(image.tags.includes("favourite"));
+
   const [transition, startTransition] = useTransition();
+
+  const handleAddOrRemoveFavourite = (flag: boolean) => {
+    setIsFavourited((previousState) => !previousState);
+
+    startTransition(() => {
+      setAsFavouriteAction(flag, image.public_id);
+    });
+  };
 
   return (
     <div className="relative">
@@ -30,26 +39,12 @@ const CloudinaryImage = ({ image }: CloudinaryImageProps) => {
         {isFavourited ? (
           <Heart
             className="cursor-pointer stroke-red-500 fill-red-500 hover:fill-transparent transition-colors"
-            onClick={() => {
-              // remove favourite tag from this cloudinary image
-              setIsFavourited((previousState) => !previousState);
-
-              startTransition(() => {
-                setAsFavouriteAction(false, image.public_id);
-              });
-            }}
+            onClick={() => handleAddOrRemoveFavourite(false)}
           />
         ) : (
           <Heart
             className="cursor-pointer stroke-white hover:stroke-red-500 transition-colors"
-            onClick={() => {
-              // add favourite tag to this cloudinary image
-              setIsFavourited((previousState) => !previousState);
-
-              startTransition(() => {
-                setAsFavouriteAction(true, image.public_id);
-              });
-            }}
+            onClick={() => handleAddOrRemoveFavourite(true)}
           />
         )}
       </button>
